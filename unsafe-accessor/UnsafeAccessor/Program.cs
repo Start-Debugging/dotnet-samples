@@ -4,13 +4,13 @@ using UnsafeAccessor;
 // Creating object instances using private constructors
 
 [UnsafeAccessor(UnsafeAccessorKind.Constructor)]
-extern static Foo CallPrivateConstructor();
+extern static Foo PrivateConstructor();
 
 [UnsafeAccessor(UnsafeAccessorKind.Constructor)]
-extern static Foo CallPrivateConstructorWithParameters(string value);
+extern static Foo PrivateConstructorWithParameters(string value);
 
-var instance1 = CallPrivateConstructor();
-var instance2 = CallPrivateConstructorWithParameters("bar");
+var instance1 = PrivateConstructor();
+var instance2 = PrivateConstructorWithParameters("bar");
 
 
 
