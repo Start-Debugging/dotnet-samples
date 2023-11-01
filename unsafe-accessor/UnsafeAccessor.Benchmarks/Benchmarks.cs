@@ -13,11 +13,13 @@ public class Benchmarks
 
     static readonly Foo _instance = new();
 
-    static readonly MethodInfo _privateMethod = typeof(Foo).GetMethod("PrivateMethod", BindingFlags.Instance | BindingFlags.NonPublic);
+    static readonly MethodInfo _privateMethod = typeof(Foo)
+        .GetMethod("PrivateMethod", BindingFlags.Instance | BindingFlags.NonPublic);
 
     [Benchmark]
-    public int Reflection() => (int)typeof(Foo).GetMethod("PrivateMethod", BindingFlags.Instance | BindingFlags.NonPublic)
-                                             .Invoke(_instance, [42]);
+    public int Reflection() => (int)typeof(Foo)
+        .GetMethod("PrivateMethod", BindingFlags.Instance | BindingFlags.NonPublic)
+        .Invoke(_instance, [42]);
 
     [Benchmark]
     public int ReflectionWithCache() => (int)_privateMethod.Invoke(_instance, [42]);
@@ -27,6 +29,4 @@ public class Benchmarks
 
     [Benchmark]
     public int DirectAccess() => _instance.PublicMethod(42);
-
-
 }

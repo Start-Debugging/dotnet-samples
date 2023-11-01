@@ -65,3 +65,15 @@ var y = StaticField(instance1);
 // Update the field value
 InstanceField(instance1) = 3;
 StaticField(instance1) = 4;
+
+
+
+// Readonly fields
+
+[UnsafeAccessor(UnsafeAccessorKind.Field, Name = "readonlyField")]
+extern static ref int ReadonlyField(Foo @this);
+
+Console.WriteLine(instance1.readonlyField); // 3
+
+ReadonlyField(instance1) = 42;
+Console.WriteLine(instance1.readonlyField); // 42
