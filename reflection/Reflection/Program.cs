@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
-using UnsafeAccessor.Benchmarks;
+using Reflection.Benchmarks;
 
 namespace Reflection;
 
@@ -7,7 +7,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        BenchmarkRunner.Run<Benchmarks>();
+        BenchmarkRunner.Run<GetGenericTypeDefinitionBenchmarks>();
 
         Console.ReadKey();
     }

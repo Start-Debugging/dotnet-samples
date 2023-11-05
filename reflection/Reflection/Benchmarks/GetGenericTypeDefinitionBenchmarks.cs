@@ -1,11 +1,11 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 
-namespace UnsafeAccessor.Benchmarks;
+namespace Reflection.Benchmarks;
 
 [SimpleJob(RuntimeMoniker.Net70)]
 [SimpleJob(RuntimeMoniker.Net80)]
-public class Benchmarks
+public class GetGenericTypeDefinitionBenchmarks
 {
     private readonly Type _type = typeof(List<int>);
 
