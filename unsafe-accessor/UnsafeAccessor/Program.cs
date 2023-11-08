@@ -77,3 +77,12 @@ Console.WriteLine(instance1.readonlyField); // 3
 
 ReadonlyField(instance1) = 42;
 Console.WriteLine(instance1.readonlyField); // 42
+
+// Backing field
+
+[UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<InstanceProperty>k__BackingField")]
+extern static ref string InstancePropertyBackingField(Foo @this);
+
+Console.WriteLine(InstancePropertyBackingField(instance1));
+InstancePropertyBackingField(instance1) = Guid.NewGuid().ToString();
+Console.WriteLine(InstancePropertyBackingField(instance1));
